@@ -1,0 +1,4 @@
+services - for getting data, validating user input and many other things
+dependency injection facilitates testing in that we can mock out the injected objects.
+    DI separates business logic and dependnecy construction
+    injector subsystem: creats components, resolves their dependencies, links components to each other

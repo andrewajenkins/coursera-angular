@@ -6,8 +6,8 @@ import { DISHES } from '../shared/dishes';
   providedIn: 'root'
 })
 export class DishService {
-getDishes(): Dish[] {
-  return DISHES;
+  getDishes(): Dish[] {
+    return DISHES;
   }
   constructor() { }
 }

@@ -2,3 +2,29 @@ services - for getting data, validating user input and many other things
 dependency injection facilitates testing in that we can mock out the injected objects.
     DI separates business logic and dependnecy construction
     injector subsystem: creats components, resolves their dependencies, links components to each other
+
+ASU:
+  Courses:
+    CSE 551 Foundations of Algorithms
+    CSE 531 Distributed & Multiprocessor OS
+    CSE 511 Data Processing at Scale
+    CSE 575 Statistical Machine Learning
+    CSE 598 Engineering Blockchain Applications
+    CSE 598 Intro to Deep Learning in Visual Computing
+    CSE 539 Applied Cryptography
+    CSE 571 Artificial Intelligence
+    CSE 572 Data Mining
+  Cost: 4.5k
+
+
+
+
+
+
+If you don’t already have one, a bachelor’s degree in computer science or software engineering is where you should start. (Software engineering may have more courses related to management, but the fundamental knowledge found in both degrees will eventually be important to the software engineering manager.)
+
+But beyond that, a good masters degree in software engineering should be part of your plan. That’s where you potentially have the opportunity to get more focused on topics relevant to software engineering management. Such a masters degree program will include courses on all of the software engineering methodologies and such (software requirements engineering, software architecture and design, software testing, etc.) and sound knowledge of these topics will be important if you intend to be a good and effective software manager. But the masters degree will also have courses on such topics as software project management, software quality engineering, software metrics, and perhaps others more focused on the needs of the software engineering manager. I was a software engineering manager in a major hi-tech company and I also taught such courses in a graduate software engineering program for many years. Many of my students also became software engineering managers. I also needed to learn some things about business management, but they were a lot easier to pick up on the job than the things I mentioned above. By contrast, I had to work for a number of managers who had impressive business degrees but little in the way of computer science, software engineering, or any other kind of engineering background. They were, as a rule, less effective as software engineering managers because the technical knowledge they lacked is a lot harder to pick up. (The best ones recognized their lack of technical knowledge and spent time listening to their technical employees rather than trying to tell them what to do.)
+
+I said a “good” software engineering masters degree. There a lot of not very good masters degree programs out there. To find a good degree you have to pick the right school and pick the right courses. I recommend looking at the curricula and faculty. In the curriculum area, look for some of the topics mentioned above. For faculty, look for some who have industry experience as practicing software engineers. And watch out for faculty members whose specialties are in theoretical areas that may be of great interest and value to some, but are not necessarily going to help you become a software engineering manager. In some schools, such faculty members hold all of the senior positions and dominate the department and unduly influence the curriculum toward topics that might indeed be valuable but not necessarily to a software engineering manager.
+
+Another thing you might do is download the Guide to the Software Engineering Body of Knowledge (www.SWEBOK.org) and see how many of the topics mentioned there are either already known to you from your undergraduate degree or can be learned in any degree program you are considering. You might be surprised at how many of the topics contained in SWEBOK (which was developed by working software engineers) are not covered in some college curricula in software engineering.

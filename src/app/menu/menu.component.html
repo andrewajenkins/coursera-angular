@@ -20,7 +20,8 @@
     </mat-grid-list>
   </div>
 
-  <app-dish-detail [dish] = "selectedDish"></app-dish-detail>
+  <mat-grid-tile *ngFor="let dish of dishes" [routerLink]="['/dishdetail', dish.id]"></mat-grid-tile>
+  <!-- <app-dish-detail [dish] = "selectedDish"></app-dish-detail> -->
 
   <!-- <div fxFlex *ngIf="selectedDish">
     <mat-grid-list [cols]="2" rowHeight="200px">

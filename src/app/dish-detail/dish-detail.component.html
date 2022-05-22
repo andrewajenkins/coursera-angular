@@ -6,7 +6,7 @@
   fxLayoutGap="10px" 
   fxLayoutGap.xs="0">
 
-  <div fxFlex="40" *ngIf="dish || errMess">
+  <div fxFlex="40" *ngIf="dish || errMess" [@visibility]="visibility">
       <mat-grid-list [cols]="2" >
           <mat-card>
               <mat-card-header>
@@ -31,7 +31,7 @@
       </mat-grid-list>
   </div>
 
-  <div fxFlex="40" style="padding-bottom: 200px;" *ngIf="dish || errMess">
+  <div fxFlex="40" style="padding-bottom: 200px;" *ngIf="dish || errMess" [@visibility]="visibility">
     <h3>Comments</h3>
     <mat-list>
       <mat-list-item *ngFor="let comment of dish.comments" style="padding-bottom: 20px;">

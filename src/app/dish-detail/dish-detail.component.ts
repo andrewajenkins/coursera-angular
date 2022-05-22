@@ -63,6 +63,7 @@ export class DishDetailComponent implements OnInit {
   next!: string;
   commentForm: any;
   errMess!: string;
+  dishcopy!: Dish;
   
   formErrors: any = {
     'author': '',
@@ -79,16 +80,18 @@ export class DishDetailComponent implements OnInit {
     },
   };
 
-  constructor(private dishservice: DishService,
+  constructor(private dishService: DishService,
     private route: ActivatedRoute,
     private location: Location,
     private fb: FormBuilder, @Inject('BaseURL') public baseURL: any) { }
 
   ngOnInit() {
-    this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds,
+    this.dishService.getDishIds().subscribe(dishIds => this.dishIds = dishIds,
       errmess => this.errMess = <any>errmess);
-    this.route.params.pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
-      .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
+    this.route.params
+      .pipe(switchMap((params: Params) => this.dishService.getDish(params['id'])))
+      .subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); },
+        errmess => this.errMess = <any>errmess );
     this.commentForm = this.fb.group({
       author: ['', [Validators.required, Validators.minLength(2)] ],
       rating: [5],
@@ -115,7 +118,14 @@ export class DishDetailComponent implements OnInit {
     const d = new Date();
     comment.date = d.toISOString()
     console.log(comment);
-    this.dish.comments.push({...comment})
+    // this.dish.comments.push({...comment})
+
+    this.dishcopy.comments.push(comment);
+    this.dishService.putDish(this.dishcopy)
+      .subscribe(dish => {
+        this.dish = dish; this.dishcopy = dish;
+      },
+      errmess => { this.dish = null as unknown as Dish; this.dishcopy = null as unknown as Dish; this.errMess = <any>errmess; });
     this.commentFormDirective.resetForm();
     this.commentForm.reset({
       author: '',

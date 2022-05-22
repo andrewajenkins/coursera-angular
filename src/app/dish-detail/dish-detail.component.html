@@ -6,7 +6,7 @@
   fxLayoutGap="10px" 
   fxLayoutGap.xs="0">
 
-  <div fxFlex="40" *ngIf="dish">
+  <div fxFlex="40" *ngIf="dish || errMess">
       <mat-grid-list [cols]="2" >
           <mat-card>
               <mat-card-header>
@@ -31,7 +31,7 @@
       </mat-grid-list>
   </div>
 
-  <div fxFlex="40" style="padding-bottom: 200px;" *ngIf="dish">
+  <div fxFlex="40" style="padding-bottom: 200px;" *ngIf="dish || errMess">
     <h3>Comments</h3>
     <mat-list>
       <mat-list-item *ngFor="let comment of dish.comments" style="padding-bottom: 20px;">
@@ -68,5 +68,9 @@
   </div>
   <div [hidden]="dish">
     <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+  <div fxFlex *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
   </div>
 </div>

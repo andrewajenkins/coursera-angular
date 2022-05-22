@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { DishService } from './services/dish.service';
 import { LeaderService } from './services/leader.service';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { PromotionService } from './services/promotion.service';
 import { baseURL } from './shared/baseurl';
 
@@ -57,7 +58,7 @@ import { baseURL } from './shared/baseurl';
     MatSliderModule,
     HttpClientModule
   ],
-  providers: [DishService, LeaderService, PromotionService, {provide: 'BaseURL', useValue: baseURL}],
+  providers: [DishService, LeaderService, PromotionService, {provide: 'BaseURL', useValue: baseURL}, ProcessHTTPMsgService],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]
 })

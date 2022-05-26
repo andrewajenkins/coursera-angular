@@ -1,9 +1,9 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Location } from '@angular/common';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { expand, flyInOut, visibility } from '../animations/app.animation';
 import { DishService } from '../services/dish.service';
 import { Dish } from '../shared/dish';
 
@@ -55,19 +55,16 @@ const DISH = {
   selector: 'app-dish-detail',
   templateUrl: './dish-detail.component.html',
   styleUrls: ['./dish-detail.component.scss'],
+  // tslint:disable-next-line:use-host-property-decorator
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+    },
   animations: [
-    trigger('visibility', [
-        state('shown', style({
-            transform: 'scale(1.0)',
-            opacity: 1
-        })),
-        state('hidden', style({
-            transform: 'scale(0.5)',
-            opacity: 0
-        })),
-        transition('* => *', animate('0.5s ease-in-out'))
-    ])
-  ]
+    visibility(),
+    flyInOut(),
+    expand()
+  ],
 })
 export class DishDetailComponent implements OnInit {
   @ViewChild('fform') commentFormDirective: any;

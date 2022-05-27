@@ -8,6 +8,7 @@ import { throwError } from 'rxjs/internal/observable/throwError';
 export class ProcessHTTPMsgService {
 
   constructor() { }
+
   public handleError(error: HttpErrorResponse | any) {
     let errMsg: string;
 

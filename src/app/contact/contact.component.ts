@@ -23,7 +23,9 @@ export class ContactComponent implements OnInit {
   feedbackForm!: FormGroup;
   feedback!: Feedback;
   contactType = ContactType;
-
+  loading: boolean = false;
+  showFeedback: boolean = false;
+  
   formErrors: any = {
     'firstname': '',
     'lastname': '',
@@ -79,8 +81,12 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     this.feedback = this.feedbackForm.value;
     console.log(this.feedback);
+    this.loading = true;
     this.feedbackService.submitFeedback(this.feedback).subscribe(r => {
       console.log("r:", r)
+      this.loading = false;
+      this.showFeedback = true;
+      setTimeout(() => this.showFeedback = false, 5000)
     });
     this.feedbackForm.reset({
       firstname: '',
